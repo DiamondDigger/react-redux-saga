@@ -14,7 +14,7 @@ function App() {
       </div>
       <div className='row'>
         <div className='column'>
-          <Posts posts={[1,2,3]}/>
+          <Posts posts={[]}/>
         </div>
         <div className='column'>
           <FetchPosts posts={[]} />  
