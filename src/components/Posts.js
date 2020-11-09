@@ -7,7 +7,7 @@ export default function Posts({posts}) {
         return (
         <>
             <h1>Local Posts</h1>
-            <h1>No any posts yet</h1>
+                <h1>No any posts yet</h1>
             <button className='btn btn-primary'>Check posts</button>
         </>
         )
