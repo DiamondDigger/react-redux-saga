@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Post from './Post'
 
-export default function Posts({posts}) {
+const Posts = ({localPosts}) => {
+    console.log('localPosts: ', localPosts)
 
-    if(!posts.length) {
+    if(!localPosts.length) {
         return (
         <>
             <h1>Local Posts</h1>
@@ -15,7 +17,12 @@ export default function Posts({posts}) {
     return (
         <>
             <h1>Local Posts</h1>
-            {posts.map(post => <Post post={post} key={post} />)}
+            {localPosts.map(post => <Post post={post} key={post.id} />)}
         </>
     )
 }
+
+const mapStateToProps = (state) => ({
+    localPosts: state.posts.posts
+})
+export default connect(mapStateToProps, null)(Posts)
