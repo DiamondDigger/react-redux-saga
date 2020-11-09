@@ -1,11 +1,12 @@
 import React from 'react'
-import Post from './Post'
 import {useDispatch, useSelector} from 'react-redux'
+import Post from './Post'
 import { fetchPost } from '../redux/actions'
 
-export default function FetchPosts() {
+export default function FetchedPosts() {
 const dispatch = useDispatch()
-const posts = useSelector(state => state.posts.fetchPosts)
+const posts = useSelector(state => state.posts.fetchedPosts)
+console.log('fetchPosts', posts)
 
     if(!posts.length) {
         return (
@@ -14,7 +15,7 @@ const posts = useSelector(state => state.posts.fetchPosts)
             <h1>No any posts yet.</h1>
             <button 
             className='btn btn-primary'
-            onClick={() => dispatch(fetchPost)}
+            onClick={() => dispatch(fetchPost())}
             >Check posts</button>
         </>
         )
@@ -23,7 +24,7 @@ const posts = useSelector(state => state.posts.fetchPosts)
     return (
         <>
             <h2>Remote Posts</h2>
-            {posts.map(post => <Post post={post} key={post} />)}
+            {posts.map(post => <Post post={post} key={post.id} />)}
         </>
     )
 }

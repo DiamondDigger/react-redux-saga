@@ -15,10 +15,10 @@ class PostForm extends React.Component {
     submitHandler = (event) => {
         event.preventDefault()
 
-        const {title, content} = this.state
+        const {title, body} = this.state
 
         const newPost = {
-            title, content, id: Date.now().toString()
+            title, body, id: Date.now().toString()
         }
 
         this.props.createPost(newPost)
@@ -50,15 +50,15 @@ class PostForm extends React.Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="content">Content</label>
+                    <label htmlFor="body">Content</label>
                     <textarea
                         rows='3' 
                         type="text" 
                         className="form-control" 
-                        id="content"
+                        id="body"
                         placeholder="content" 
-                        name='content'
-                        value={this.state.content}
+                        name='body'
+                        value={this.state.body}
                         onChange={this.changeInputHandler}
                      />
                 </div>

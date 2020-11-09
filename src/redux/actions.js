@@ -8,7 +8,7 @@ export const createPost = (post) => ({
 export const fetchPost = () => {
     return async dispatch => {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
-        const json = response.json()
+        const json = await response.json()
         dispatch({
             type: FETCH_POST,
             payload: json

@@ -1,7 +1,7 @@
 import './style.css'
 import PostForm from './components/PostForm'
 import Posts from './components/Posts'
-import FetchPosts from './components/FetchPosts'
+import FetchedPosts from './components/FetchedPosts'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Posts />
         </div>
         <div className='column'>
-          <FetchPosts />  
+          <FetchedPosts />  
         </div>
       </div>
     </div>
