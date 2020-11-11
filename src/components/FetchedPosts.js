@@ -1,15 +1,22 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import Post from './Post'
-import { fetchPost } from '../redux/actions'
+import Loader from './Loader'
+import { fetchPost, showLoader, hideLoader } from '../redux/actions'
 
 export default function FetchedPosts() {
 const dispatch = useDispatch()
 const posts = useSelector(state => state.posts.fetchedPosts)
+const loading = useSelector(state => state.app.loading)
+
 console.log('fetchPosts', posts)
 
-    if(!posts.length) {
-        return (
+if (loading) {
+    return <Loader />
+}
+
+if(!posts.length) {
+    return (
         <>
             <h1>Remote Posts</h1>
             <h1>No any posts yet.</h1>
@@ -23,8 +30,12 @@ console.log('fetchPosts', posts)
 
     return (
         <>
-            <h2>Remote Posts</h2>
+            <h1>Remote Posts</h1>
             {posts.map(post => <Post post={post} key={post.id} />)}
+            <button 
+            className='btn btn-primary'
+            onClick={() => dispatch(fetchPost())}
+            >Reload posts</button>
         </>
     )
 }
