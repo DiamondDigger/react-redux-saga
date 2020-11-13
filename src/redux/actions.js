@@ -40,7 +40,7 @@ export const fetchPost = () => {
     return async dispatch => {
         try {
             dispatch(showLoader())
-            const response = await fetch('htps://jsonplaceholder.typicode.com/posts?_limit=3')
+            const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
             const json = await response.json()
             console.log('fetch data from server')
             // setTimeout only for the educational purposes 
